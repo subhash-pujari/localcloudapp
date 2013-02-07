@@ -1,0 +1,81 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	new file:   AndroidManifest.xml
+#	new file:   bin/AndroidManifest.xml
+#	new file:   bin/CloudApp.apk
+#	new file:   bin/classes.dex
+#	new file:   bin/classes/com/evoapps/cloudapp/BuildConfig.class
+#	new file:   bin/classes/com/evoapps/cloudapp/CheckForChangeInRepo.class
+#	new file:   bin/classes/com/evoapps/cloudapp/Constants.class
+#	new file:   bin/classes/com/evoapps/cloudapp/FileChangeListener.class
+#	new file:   bin/classes/com/evoapps/cloudapp/MainActivity$1.class
+#	new file:   bin/classes/com/evoapps/cloudapp/MainActivity$2.class
+#	new file:   bin/classes/com/evoapps/cloudapp/MainActivity.class
+#	new file:   bin/classes/com/evoapps/cloudapp/MobileRepoFileObserver.class
+#	new file:   bin/classes/com/evoapps/cloudapp/R$attr.class
+#	new file:   bin/classes/com/evoapps/cloudapp/R$drawable.class
+#	new file:   bin/classes/com/evoapps/cloudapp/R$id.class
+#	new file:   bin/classes/com/evoapps/cloudapp/R$layout.class
+#	new file:   bin/classes/com/evoapps/cloudapp/R$menu.class
+#	new file:   bin/classes/com/evoapps/cloudapp/R$string.class
+#	new file:   bin/classes/com/evoapps/cloudapp/R$style.class
+#	new file:   bin/classes/com/evoapps/cloudapp/R.class
+#	new file:   bin/classes/com/evoapps/cloudapp/ReceiveFileActivity.class
+#	new file:   bin/classes/com/evoapps/cloudapp/ShowFileList.class
+#	new file:   bin/classes/com/evoapps/cloudapp/database/FileContentProvider$FileSqliteDatabase.class
+#	new file:   bin/classes/com/evoapps/cloudapp/database/FileContentProvider.class
+#	new file:   bin/classes/com/evoapps/cloudapp/datastructure/FileInfo.class
+#	new file:   bin/classes/com/evoapps/cloudapp/datastructure/FileInfoList.class
+#	new file:   bin/classes/com/evoapps/cloudapp/logic/ReplacementLogic.class
+#	new file:   bin/classes/com/evoapps/cloudapp/receiver/FileGetReceiver.class
+#	new file:   bin/classes/com/evoapps/cloudapp/ui/FileList.class
+#	new file:   bin/dexedLibs/android-support-v4-6922475eff8f20eb5217ee68eb3f8c61.jar
+#	new file:   bin/jarlist.cache
+#	new file:   bin/res/drawable-hdpi/ic_launcher.png
+#	new file:   bin/res/drawable-ldpi/ic_launcher.png
+#	new file:   bin/res/drawable-mdpi/ic_launcher.png
+#	new file:   bin/res/drawable-xhdpi/ic_launcher.png
+#	new file:   bin/resources.ap_
+#	new file:   clouddataentry
+#	new file:   clouddataentry-journal
+#	new file:   gen/com/evoapps/cloudapp/BuildConfig.java
+#	new file:   gen/com/evoapps/cloudapp/R.java
+#	new file:   ic_launcher-web.png
+#	new file:   libs/android-support-v4.jar
+#	new file:   proguard-project.txt
+#	new file:   project.properties
+#	new file:   res/drawable-hdpi/ic_launcher.png
+#	new file:   res/drawable-ldpi/ic_launcher.png
+#	new file:   res/drawable-mdpi/ic_launcher.png
+#	new file:   res/drawable-xhdpi/ic_launcher.png
+#	new file:   res/layout/activity_main.xml
+#	new file:   res/layout/available_file_list.xml
+#	new file:   res/menu/activity_main.xml
+#	new file:   res/values-v11/styles.xml
+#	new file:   res/values-v14/styles.xml
+#	new file:   res/values/strings.xml
+#	new file:   res/values/styles.xml
+#	new file:   src/com/evoapps/cloudapp/CheckForChangeInRepo.java
+#	new file:   src/com/evoapps/cloudapp/Constants.java
+#	new file:   src/com/evoapps/cloudapp/FileChangeListener.java
+#	new file:   src/com/evoapps/cloudapp/MainActivity.java
+#	new file:   src/com/evoapps/cloudapp/MobileRepoFileObserver.java
+#	new file:   src/com/evoapps/cloudapp/ReceiveFileActivity.java
+#	new file:   src/com/evoapps/cloudapp/ShowFileList.java
+#	new file:   src/com/evoapps/cloudapp/database/FileContentProvider.java
+#	new file:   src/com/evoapps/cloudapp/datastructure/FileInfo.java
+#	new file:   src/com/evoapps/cloudapp/datastructure/FileInfoList.java
+#	new file:   src/com/evoapps/cloudapp/logic/ReplacementLogic.java
+#	new file:   src/com/evoapps/cloudapp/receiver/FileGetReceiver.java
+#	new file:   src/com/evoapps/cloudapp/ui/FileList.java
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.classpath
+#	.project

@@ -25,14 +25,14 @@
             </intent-filter>
         </activity>
         <service
-            android:name = ".FileChangeListener">            
+            android:name = ".engine.FileChangeListener">            
         </service>
          <provider android:name="com.evoapps.cloudapp.database.FileContentProvider"
             android:authorities="com.cloudapps.filedatabase"
         /> 
         <activity android:name=".ShowFileList"/>
     
-		<activity android:name=".ReceiveFileActivity">
+		<activity android:name=".engine.ReceiveFileActivity">
 		    <intent-filter>
             	<action android:name="android.intent.action.SEND"/>
             	<category android:name="android.intent.category.DEFAULT" />
@@ -43,7 +43,12 @@
             	<category android:name="android.intent.category.DEFAULT" />
             	<data android:mimeType="video/*"></data>
         	</intent-filter>
-		</activity>
+			<intent-filter>
+            	<action android:name="android.intent.action.SEND"/>
+            	<category android:name="android.intent.category.DEFAULT" />
+            	<data android:mimeType="audio/*"></data>
+        	</intent-filter>
+     </activity>
     
     </application>
 

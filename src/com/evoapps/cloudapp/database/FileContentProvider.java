@@ -83,8 +83,9 @@ public class FileContentProvider extends ContentProvider{
 			String[] selectionArgs, String sortOrder) {
 		// TODO Auto-generated method stub
 		sqldb = filedb.getReadableDatabase();
-		
+		Log.e(TAG, "call for query");
 		if(sqldb != null){
+			Log.e(TAG, "call for query");
 			return sqldb.query(Constants.TABLE_NAME, null, null, null,null, null, null);
 		}else{
 			Log.e(TAG, "sqldb null");
@@ -126,8 +127,9 @@ public class FileContentProvider extends ContentProvider{
 		public void onCreate(SQLiteDatabase db) {
 			// TODO Auto-generated method stub
 			Log.e(TAG, "database create");
+			//db.execSQL("Drop table "+ Constants.TABLE_NAME+";");
 			db.execSQL(Constants.CreateFileInfoTable);
-		
+			 
 		}
 
 		/* (non-Javadoc)

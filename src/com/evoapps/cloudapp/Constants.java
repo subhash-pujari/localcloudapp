@@ -53,8 +53,14 @@ public class Constants {
 				/** The Constant isAvailable. */
 				public static final String isAvailable = "isavailable";
 				
+				public static final String LAST_ACCESSED = "lastaccessed";
+				
+				public static final String ACCESS_FREQUENCY = "access_frequency";
+				
+				public static final String TYPE = "type";
 				/** The Constant CreateFileInfoTable. */
 				public static final String CreateFileInfoTable = "create table "+ TABLE_NAME + "( "+ ID 
 						+" auto increment primary key, "+ NAME +" varchar, " +SIZE +" long, "
-						+ CREATE_TIME+" long, "+ LAST_MODIFIED+" long,"+ isAvailable +" integer"+");"; 
+						+ CREATE_TIME+" long, "+ LAST_MODIFIED+" long, "+ LAST_ACCESSED+" long, "+
+						ACCESS_FREQUENCY+ " integer, "+isAvailable +" integer, "+TYPE+" integer);"; 
 }

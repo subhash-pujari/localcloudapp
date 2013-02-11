@@ -17,11 +17,13 @@ public class FileInfo {
 		/** The name. */
 		private String name;
 		
+		private long size;
+		
 		/** The create time. */
 		private Time createTime;
 		
 		/** The modification time. */
-		private Time modificationTime;
+		private long modificationTime;
 		
 		/** The access time. */
 		private Time accessTime;
@@ -65,7 +67,7 @@ public class FileInfo {
 		 *
 		 * @return the modification time
 		 */
-		public Time getModificationTime() {
+		public long getModificationTime() {
 			return modificationTime;
 		}
 		
@@ -74,7 +76,7 @@ public class FileInfo {
 		 *
 		 * @param modificationTime the new modification time
 		 */
-		public void setModificationTime(Time modificationTime) {
+		public void setModificationTime(long modificationTime) {
 			this.modificationTime = modificationTime;
 		}
 		
@@ -128,8 +130,12 @@ public class FileInfo {
 		 *
 		 * @param isAvailable the new available
 		 */
-		public void setAvailable(boolean isAvailable) {
-			this.isAvailable = isAvailable;
+		public void setAvailable(int isAvailable) {
+			if(isAvailable == 1){
+				this.isAvailable = true;
+			}else{
+				this.isAvailable = false;
+			}
 		}
 
 		/**
@@ -150,4 +156,11 @@ public class FileInfo {
 			this.name = name;
 		}
 
+		public void setSize(long size){
+			this.size = size;
+		}
+		
+		public long getSize(){
+			return this.size ;
+		}
 }

@@ -1,6 +1,3 @@
-/*
- * 
- */
 package com.evoapps.cloudapp;
 
 import java.io.File;
@@ -13,19 +10,23 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.SparseBooleanArray;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
 import com.evoapps.cloudapp.datastructure.FileInfo;
+import com.evoapps.cloudapp.engine.FileUtility;
+import com.evoapps.cloudapp.ui.FileListItemAdapter;
 
 // TODO: Auto-generated Javadoc
 /**
  * The Class ShowFileList.
  */
-public class ShowFileList  extends ListActivity implements OnItemLongClickListener{
+public class ShowFileList  extends ListActivity implements OnItemLongClickListener, OnItemClickListener{
 
 		/** The list. */
 		ListView list;
@@ -39,14 +40,21 @@ public class ShowFileList  extends ListActivity implements OnItemLongClickListen
 		protected void onCreate(Bundle savedInstanceState) {
 			// TODO Auto-generated method stub
 			super.onCreate(savedInstanceState);
+			setContentView(R.layout.showfilelist);
 			listOfFiles = new ArrayList<FileInfo>();
 			mContext = this;
 			Cursor cursor = getContentResolver().query(Uri.parse(Constants.authority), null, null, null, null);
-			addToFileList(cursor);
+			if(cursor.getCount()>0){
+				addToFileList(cursor);
+			}
+			
 			list = getListView();
-			SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.available_file_list, cursor, new String[]{"name"}, new int[]{R.id.file_name});
-			list.setAdapter(adapter);
+			//SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, R.layout.available_file_list, cursor, new String[]{"name"}, new int[]{R.id.file_name});
+			FileListItemAdapter adapterList = new FileListItemAdapter(this, listOfFiles);
+			
+			list.setAdapter(adapterList);
 			list.setOnItemLongClickListener(this);
+			list.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
 		}
 
 		@Override
@@ -68,19 +76,24 @@ public class ShowFileList  extends ListActivity implements OnItemLongClickListen
 			Intent intent = new Intent();  
 			intent.setAction(android.content.Intent.ACTION_VIEW);  
 			File file = new File(path);  
-			Log.e(TAG, "filename>>"+filename);
-			String[] filenamesplit = filename.split(".");
-			Log.e(TAG, "filename>>filenamesplit.length>>"+filenamesplit.length);
-			if(filename.contains(".")){
-				Log.e(TAG, "contains .");
+			String file_extension = (String)filename.subSequence(filename.indexOf(".")+1, filename.length());
+			int type = FileUtility.getType(file_extension);
+			
+			
+			Log.e(TAG, "type>>file_extension"+type+">>"+file_extension);
+			if(type == 0){
+				intent.setDataAndType(Uri.fromFile(file), "image/*"); 
+			}else if(type == 1){
+				intent.setDataAndType(Uri.fromFile(file), "audio/*"); 
+			}else if(type == 2){
+				intent.setDataAndType(Uri.fromFile(file), "video/*"); 
 			}
-				if(filenamesplit[filenamesplit.length-1].equals("jpeg")){
-					intent.setDataAndType(Uri.fromFile(file), "image/*");  
-				}else if(filenamesplit[filenamesplit.length-1].equals("mp4")){
-					intent.setDataAndType(Uri.fromFile(file), "video/*");  
-				}
-				startActivity(intent);
+				
+			startActivity(intent);
+			
 			return true;
+			
+			
 		}
 		
 		
@@ -95,7 +108,15 @@ public class ShowFileList  extends ListActivity implements OnItemLongClickListen
 				do{
 					FileInfo fileInfo = new FileInfo();
 					String filename = cursor.getString(cursor.getColumnIndex(Constants.NAME));
+					long modifiedTime = cursor.getLong(cursor.getColumnIndex(Constants.LAST_MODIFIED));
+					long size = cursor.getLong(cursor.getColumnIndex(Constants.SIZE));
+					int available = cursor.getInt(cursor.getColumnIndex(Constants.isAvailable));
+					
 					fileInfo.setName(filename);
+					fileInfo.setModificationTime(modifiedTime);
+					fileInfo.setSize(size);
+					fileInfo.setAvailable(available);
+					
 					Log.e(TAG, "filename add to list>>"+filename);
 					listOfFiles.add(fileInfo);
 					cursor.moveToNext();
@@ -110,5 +131,15 @@ public class ShowFileList  extends ListActivity implements OnItemLongClickListen
 				
 				
 			}
+		}
+
+		@Override
+		public void onItemClick(AdapterView<?> arg0, View arg1, int arg2,
+				long arg3) {
+			// TODO Auto-generated method stub
+			
+			SparseBooleanArray idSelectedItem = list.getCheckedItemPositions();	
+			
+			
 		}
 }

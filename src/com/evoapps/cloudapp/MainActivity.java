@@ -6,6 +6,9 @@ package com.evoapps.cloudapp;
 import java.util.Iterator;
 import java.util.List;
 
+import com.evoapps.cloudapp.engine.CheckForChangeInRepo;
+import com.evoapps.cloudapp.engine.FileChangeListener;
+
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
